@@ -1,7 +1,5 @@
 //import data from "./Data.json" assert { type: "json" };
 const data = `
-{
-	"Resume":
 	[
 		{
 			"id": 1,
@@ -468,12 +466,37 @@ const data = `
 					"Travelling",
 					"Workout"
 				]
-			}
-		}
-	]
-}`;
-JSON.parse(data);
+		    }
+	    }
+    ]`;
+
 var resumes = JSON.parse(data);
+
 console.log(resumes);
+
+resumes[0].id = '1';
+console.log(resumes);
+
+
+
+
+
+function getResumeByAppliedJob() {
+	// Selecting the input element and get its value 
+	var inputVal = document.getElementById("resume").value;
+
+
+	const resumeOnName = resumes.filter(
+		function (item) {
+			return item.basics.AppliedFor === inputVal
+		}
+
+	);
+	return JSON.stringify(resumeOnName);
+}
+
+
+
+
 
 
